@@ -1,0 +1,31 @@
+{% extends 'Base.html' %}
+{% block AppointmentForm %}
+<div class="row">
+<div class="col-sm-6">
+    <form method="post" class="form-control bg-dark">
+        {% csrf_token %}
+       <label for="">Doctor</label>
+       <select name="doctor" id="doctor" class="form-control" placeholder="Select doctor">
+        {% for i in doctor %}
+        <option value="{{i.user}}" >{{i.user}} {{i.id}}</option>
+        {% endfor %}
+       </select>
+
+        <label for="">Patient</label>
+       <select name="patient" id="patient" class="form-control">
+       {% for i in patient %}
+        <option value="{{i.user}}">{{i.user}}{{i.id}}</option>
+        {% endfor %}
+       </select> 
+       <label>Date</label>
+       <input type="date" name="date" id="date" class="form-control">
+       <label>Time</label>
+       <input type="time" name="time" id="time" class="form-control">
+       <br>
+       <input type="submit" class="btn btn-outline-warning">
+    </form>
+</div>
+</div>
+
+
+{% endblock %}

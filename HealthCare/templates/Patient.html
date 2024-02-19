@@ -1,0 +1,23 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %} Patient-Registraion {% endblock %}
+{% block patient_register %} 
+    <div class="row justify-content-around align-items-center">
+        <div class="col-sm-3">
+            <img class="ïmg img-fluid rounded-circle" src="{% static 'images/m4.png' %}" height="400" width="400" alt="">
+            <h3 class="self-align-center">Patient Registration</h3>
+        </div>
+        <div class="col-sm-5">
+            <form class="" method="POST">
+                {% csrf_token %}
+             {% for fm in form %}
+             <div class="text-white">
+                {{fm.label}}{{fm}} 
+                {{fm.errors}}
+             </div><br>
+             {% endfor%}
+            <input class="btn btn-warning" type="submit" value="Register">
+            </form>
+        </div>
+ </div>
+{% endblock %}
